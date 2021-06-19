@@ -37,7 +37,7 @@ class ClassMarkStoge {
         localStorage.setItem(this.tableName, JSON.stringify(datas));
     }
     getAll() {
-        let datas = localStorage.getItem(this.tableName || "[]");
+        let datas = localStorage.getItem(this.tableName) || "[]";
         this.lstAll = JSON.parse(datas);
         
         return this.lstAll.map(v => new ClassMark(v));

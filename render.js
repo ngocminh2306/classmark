@@ -22,6 +22,45 @@ function renderForm(initData) {
     </form>`
     return html;
 }
+
+function getFormData(nameInput, mathScoresInput, chemistryScoresInput, physicsScoresInput) {
+    let classMark = new ClassMark();
+    classMark.Name = nameInput.value;
+    classMark.MathScores = mathScoresInput.value;
+    classMark.PhysicsScores = physicsScoresInput.value;
+    classMark.ChemistryScores = chemistryScoresInput.value;
+    lstClassMark.push(classMark);
+
+    database.save(lstClassMark);
+
+    renderTable(lstClassMark)
+    formMark.innerHTML = renderForm(null)
+}
+function editFormData(index, nameInput, mathScoresInput, chemistryScoresInput, physicsScoresInput) {
+    let classMark = new ClassMark();
+    classMark.Name = nameInput.value;
+    classMark.MathScores = mathScoresInput.value;
+    classMark.PhysicsScores = physicsScoresInput.value;
+    classMark.ChemistryScores = chemistryScoresInput.value;
+
+    lstClassMark[index] = classMark;
+
+    database.save(lstClassMark);
+
+    renderTable(lstClassMark)
+    formMark.innerHTML = renderForm(null)
+}
+function renderTable(lstClassMark) {
+    addRecord(lstClassMark);
+}
+function addRecord(_lstClassMark) {
+    let tbody = document.getElementById('tbody');
+    tbody.innerHTML = '';
+    _lstClassMark.map((classMark, index) => {
+        tbody.appendChild(renderRecord(classMark, index));
+    })
+}
+
 function renderRecord(classMark, i) {
     let calcAvgScores = '?';
     if(classMark.AvgScores) {
