@@ -5,9 +5,6 @@
     <title>Class Marksheet</title>
     <link rel="stylesheet" href="styles.css"> 
     <!-- <script type="module" src="index.js"></script> -->
-    <script src="component/myform.js"></script>
-    <script src="component/table.js"></script>
-    <script src="index.js"></script>
 </head>
 <body>
     <div class="container">
@@ -15,8 +12,27 @@
             <h1>Class Marksheet</h1>
             <div id="formMark"></div>
         </div>
-        <div id="table"></div>
+        <div id="table">
+            <table>
+                <tr>
+                    <th>STT</th>
+                    <th>Họ tên</th>
+                    <th>Toán</th>
+                    <th>Lý</th>
+                    <th>Hóa</th>
+                    <th>Trung bình</th>
+                    <th>Thao tác</th>
+                </tr>
+                <tbody id="tbody">
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <button onclick="tinhDiemTB()">Tính điểm trung bình</button>
+            <button onclick="xacDinhHocSinhGioi()">Xác định học sinh giỏi</button>
+        </div>
     </div>
 </body>
-
+<script src="model.js"></script>
+<script src="index.js"></script>
 </html>

@@ -22,3 +22,6 @@ td, th {
     text-align: left;
     padding: 8px;
 }
+.mytable {
+    margin-top: 0.75rem;
+}
